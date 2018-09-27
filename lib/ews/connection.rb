@@ -112,9 +112,9 @@ class Viewpoint::EWS::Connection
   # @param ews [Viewpoint::EWS::SOAP::ExchangeWebService] used to call
   #   #parse_soap_response
   # @param soapmsg [String]
-  # @param opts [Hash] misc opts for handling the Response
+  # @param opts [Hash] misc opts for handling the Response, plus custom headers/cookies
   def dispatch_async(ews, soapmsg, opts)
-    streaming_connection = post_async(soapmsg)
+    streaming_connection = post_async(soapmsg, options: opts)
 
     if opts[:raw_response]
       streaming_connection # Returns the HTTPClient::Connection instance as a result
@@ -173,39 +173,19 @@ class Viewpoint::EWS::Connection
     end
   end
 
-  def custom_http_headers(headers)
-    custom_headers = Viewpoint::EWS::SOAP::CUSTOMISABLE_HTTP_HEADERS.inject({}) do |header_hash, (header_key, header_name)|
-      if headers.include?(header_key)
-        header_hash[header_name] = headers[header_key]
-      end
-      header_hash
-    end
-
-    custom_headers || {}
-  end
-
-  def set_custom_http_cookies(cookies)
-    Viewpoint::EWS::SOAP::CUSTOMISABLE_HTTP_COOKIES.each do |cookie_key, cookie_name|
-      if cookies.include?(cookie_key)
-        cookie = WebAgent::Cookie.new
-        cookie.name = cookie_name
-        cookie.value = cookies[cookie_key]
-        cookie.url = URI(endpoint)
-        @httpcli.cookie_manager.add(cookie)
-      end
-    end
-  end
-
   # Copied from #post above but make a HTTP::Client#post_async request,
   #   which returns a HTTPClient::Connection instance as a result.
   #
   # Send a asynchronous POST to the web service which creates a connection for sending/receiving data
+  # @param options [Hash] optional custom cookies and headers
   # @return [HTTPClient::Connection] HTTPClient::Connection
-  def post_async(xmldoc)
+  def post_async(xmldoc, options: {})
     headers = {'Content-Type' => 'text/xml'}
+    headers.merge!(custom_http_headers(options[:customisable_headers])) if options[:customisable_headers]
+    set_custom_http_cookies(options[:customisable_cookies]) if options[:customisable_cookies]
+
     @httpcli.post_async(@endpoint, xmldoc, headers)
   end
-
 
   private
 

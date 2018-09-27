@@ -126,7 +126,8 @@ module Viewpoint::EWS::SOAP
     #
     # @param [Array] subscription_ids Subscription identifiers
     # @param [Integer] timeout For streaming connection
-    def get_streaming_events(subscription_ids, timeout)
+    # @param options [Hash] optional custom headers and cookies
+    def get_streaming_events(subscription_ids, timeout, options = {})
       req = build_soap! do |type, builder|
         if(type == :header)
         else
@@ -138,7 +139,7 @@ module Viewpoint::EWS::SOAP
       end
 
       # TODO: Once do_soap_request_async support raw_response, returns GetStreamingEventResponse results
-      do_soap_request_async(req, raw_response: true)
+      do_soap_request_async(req, options.merge(raw_response: true))
     end
 
 

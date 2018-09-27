@@ -231,7 +231,7 @@ module Viewpoint::EWS::SOAP
     # @param [String] soapmsg an XML formatted string
     # @todo make this work for Viewpoint (imported from SPWS)
     # @param [Hash] opts misc options
-    # @option opts [Boolean] :raw_response if true do not parse and return the raw connection
+    # @option opts [Boolean] :raw_response if true do not parse and return the raw connection, optional custom headers and cookies
     def do_soap_request_async(soapmsg, opts = {})
       @log.debug <<-EOF.gsub(/^ {8}/, '')
         Sending SOAP Request:
