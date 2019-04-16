@@ -16,6 +16,9 @@ Find me on irc.freenode.net in #ruby-lang (zenChild)
 
 # Features
 
+## Version 1.2.4
+1. Add `date_time_received` method to items - this is used when filtering by `todays_items`, `items_since`, `items_between`, etc.
+
 ## Version 1.2.3
 1. Add support for QueryString (special thank to @Fishy49 https://github.com/Fishy49)
 2. Include request body in all error classes for better error handling
