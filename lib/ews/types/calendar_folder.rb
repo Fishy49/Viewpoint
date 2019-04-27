@@ -7,6 +7,7 @@ module Viewpoint::EWS::Types
     # Fetch items between a given time period
     # @param [DateTime] start_date the time to start fetching Items from
     # @param [DateTime] end_date the time to stop fetching Items from
+    # @param [Boolean] calendar_view indicates if the calendar view element should be passed see https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/recurrence-patterns-and-ews#expanded-vs-non-expanded-views
     def items_between(start_date, end_date, calendar_view = false, opts={})
       if calendar_view
         opts.merge!({ calendar_view: { start_date: start_date, end_date: end_date } })
