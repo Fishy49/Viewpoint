@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/WinRb/Viewpoint.svg?branch=master)](https://travis-ci.org/WinRb/Viewpoint)
 
-# Viewpoint for Exchange Web Services 1.2.3
+# Viewpoint for Exchange Web Services 1.2.5
 http://github.com/zenchild/Viewpoint/wiki
 
 Viewpoint for EWS provides a thin Ruby layer on top of Microsoft Exchange
@@ -15,6 +15,12 @@ Add me in LinkedIn:  http://www.linkedin.com/in/danwanek
 Find me on irc.freenode.net in #ruby-lang (zenChild)
 
 # Features
+
+## Version 1.2.5
+1. Modify `CalendarFolder.items_between` to support a `calendar_view` boolean. This is useful if you want expanded calendar views. See https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/recurrence-patterns-and-ews#expanded-vs-non-expanded-views
+
+## Version 1.2.4
+1. Add `date_time_received` method to items - this is used when filtering by `todays_items`, `items_since`, `items_between`, etc.
 
 ## Version 1.2.3
 1. Add support for QueryString (special thank to @Fishy49 https://github.com/Fishy49)
