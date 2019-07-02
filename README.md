@@ -16,6 +16,9 @@ Find me on irc.freenode.net in #ruby-lang (zenChild)
 
 # Features
 
+## Version 1.2.6
+1. Reference the proper `due_date` in the `Task` type.
+
 ## Version 1.2.5
 1. Modify `CalendarFolder.items_between` to support a `calendar_view` boolean. This is useful if you want expanded calendar views. See https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/recurrence-patterns-and-ews#expanded-vs-non-expanded-views
 
