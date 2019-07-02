@@ -8,7 +8,7 @@ module Viewpoint::EWS::Types
       complete?:         [:is_complete, :text],
       recurring?:        [:is_recurring, :text],
       start_date:        [:start_date, :text],
-      due_date:          [:end_date, :text],
+      due_date:          [:due_date, :text],
       reminder_due_by:   [:reminder_due_by, :text],
       reminder?:         [:reminder_is_set, :text],
       percent_complete:  [:percent_complete, :text],
