@@ -16,8 +16,8 @@ Find me on irc.freenode.net in #ruby-lang (zenChild)
 
 # Features
 
-## Version 1.2.6
-1. Add update_item! to `Task` model
+## Version 1.2.8
+1. Make sure `reminder_due_by` gets converted properly
 
 ## Version 1.2.6
 1. Reference the proper `due_date` in the `Task` type.

@@ -56,7 +56,7 @@ module Viewpoint::EWS
 
             # Convert attributes
             case key
-              when :start_date, :due_date
+              when :start_date, :due_date, :reminder_due_by
                 item_parameters[key] = {text: value.respond_to?(:iso8601) ? value.iso8601 : value}
               when :body
                 item_parameters[key] = {body_type: self.body_type || 'Text', text: value.to_s}
