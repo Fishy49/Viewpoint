@@ -16,6 +16,9 @@ Find me on irc.freenode.net in #ruby-lang (zenChild)
 
 # Features
 
+## Version 1.2.9
+1. Make sure format_time gets the right argument when building `reminder_due_by`
+
 ## Version 1.2.8
 1. Make sure `reminder_due_by` gets converted properly
 

@@ -1040,8 +1040,8 @@ module Viewpoint::EWS::SOAP
       nbuild[NS_EWS_TYPES].ReminderIsSet reminder
     end
 
-    def reminder_due_by!(date)
-      nbuild[NS_EWS_TYPES].ReminderDueBy format_time(date)
+    def reminder_due_by!(sd)
+      nbuild[NS_EWS_TYPES].ReminderDueBy format_time(sd[:text])
     end
 
     def sensitivity!(sensitivity)
