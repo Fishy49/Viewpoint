@@ -16,7 +16,7 @@ Find me on irc.freenode.net in #ruby-lang (zenChild)
 
 # Features
 
-## Version 1.2.11
+## Version 1.2.12
 1. Support `indexed_page_folder_view` - See https://docs.microsoft.com/en-us/exchange/client-developer/web-service-reference/indexedpagefolderview
 
 ## Version 1.2.9

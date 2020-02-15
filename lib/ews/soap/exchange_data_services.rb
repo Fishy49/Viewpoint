@@ -495,8 +495,8 @@ module Viewpoint::EWS::SOAP
         else
           builder.nbuild.FindFolder(:Traversal => camel_case(opts[:traversal])) {
             builder.nbuild.parent.default_namespace = @default_ns
-            builder.folder_shape!(opts[:folder_shape])
             builder.indexed_page_folder_view!(opts[:indexed_page_folder_view]) if opts[:indexed_page_folder_view]
+            builder.folder_shape!(opts[:folder_shape])
             builder.restriction!(opts[:restriction]) if opts[:restriction]
             builder.parent_folder_ids!(opts[:parent_folder_ids])
           }
@@ -533,7 +533,6 @@ module Viewpoint::EWS::SOAP
           builder.nbuild.GetFolder {
             builder.nbuild.parent.default_namespace = @default_ns
             builder.folder_shape!(opts[:folder_shape])
-            builder.indexed_page_folder_view!(opts[:indexed_page_folder_view]) if opts[:indexed_page_folder_view]
             builder.folder_ids!(opts[:folder_ids], opts[:act_as])
           }
         end
