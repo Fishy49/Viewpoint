@@ -41,6 +41,7 @@ module Viewpoint::EWS::SOAP
             builder.nbuild.parent.default_namespace = @default_ns
             builder.item_shape!(opts[:item_shape])
             builder.indexed_page_item_view!(opts[:indexed_page_item_view]) if opts[:indexed_page_item_view]
+            builder.indexed_page_folder_view!(opts[:indexed_page_folder_view]) if opts[:indexed_page_folder_view]
             # @todo add FractionalPageFolderView
             builder.calendar_view!(opts[:calendar_view]) if opts[:calendar_view]
             builder.contacts_view!(opts[:contacts_view]) if opts[:contacts_view]
