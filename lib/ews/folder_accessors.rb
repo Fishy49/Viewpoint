@@ -150,6 +150,7 @@ private
       :traversal => opts[:traversal],
       :folder_shape => {:base_shape => opts[:shape]}
     }
+    args[:indexed_page_folder_view] = opts[:indexed_page_folder_view] if opts[:indexed_page_folder_view]
     args[:restriction] = restr if restr
     args
   end
